@@ -1,0 +1,18 @@
+<swiper-container>
+
+  <swiper-slide *ngFor="let itemSlider of sliderComponents"
+                class='slider-container'>
+    <div class="slider-wrapper">
+      <h1 class="title">{{itemSlider.title | uppercase}}</h1>
+      <p class="subtitle">{{itemSlider.firstSubTitle}}</p>
+      <p class="subtitle">{{itemSlider.secondSubTitle}}</p>
+      <p class="btn-container">
+        <a href="" class="catalog-btn">В каталог</a>
+      </p>
+    </div>
+  </swiper-slide>
+  <swiper-button-prev></swiper-button-prev>
+  <swipper-button-next></swipper-button-next>
+</swiper-container>
+
+

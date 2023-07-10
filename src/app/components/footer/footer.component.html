@@ -1,0 +1,12 @@
+<footer class="footer">
+  <div class="footer_element element-container"
+  *ngFor="let footerElement of footerElements">
+    <div class="title-container footer_title-container">
+      <img src="{{footerElement.img}}" alt="{{footerElement.title}}" class="footer_image image">
+      <h3 class="title footer_title">{{footerElement.title}}</h3>
+    </div>
+    <p class="subtitle">
+      {{footerElement.subtitle}}
+    </p>
+  </div>
+</footer>

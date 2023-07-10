@@ -1,0 +1,72 @@
+.slider-container:nth-child(1) {
+  background-image: url("/assets/slider1.jpg");
+}
+
+.slider-container:nth-child(2) {
+  background-image: url("/assets/slider2.jpg");
+}
+
+.slider-container {
+  filter: opacity(0.85);
+  background-size: cover;
+  height: 900px;
+  display: flex;
+  align-items: center;
+}
+
+.slider-wrapper {
+  margin-left: 100px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #282828;
+}
+
+.subtitle {
+  font-weight: 700;
+  color: #464654;
+  width: 400px;
+  line-height: 25px;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.catalog-btn {
+  font-weight: 600;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 17px;
+  width: 105px;
+  text-decoration: none;
+  color: #464654;
+  border: 1px solid #464654;
+  border-radius: 6px;
+  transition: all 0.4s ease-out;
+}
+
+.catalog-btn::after {
+  content: url("/assets/right-arrow.svg");
+  display: inline-block;
+  width: 15px;
+  margin-left: 5px;
+  transition: 0.4s ease-out;
+  transform: scale(0.03);
+}
+
+.catalog-btn:hover {
+  color: #f45454;
+}
+
+.catalog-btn:hover::after {
+  transform: translateX(5px) scale(0.03);
+}
+
+/*# sourceMappingURL=main-slider.component.css.map */

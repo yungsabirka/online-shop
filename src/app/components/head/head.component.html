@@ -1,0 +1,9 @@
+<header class="header">
+  <img src="/assets/logo.svg" alt="logo" class="logo">
+  <nav class="navigation">
+    <a class="nav-link link"
+      *ngFor="let itemNav of nav"
+      routerLink="{{itemNav.link}}"
+    >{{itemNav.title}}</a>
+  </nav>
+</header>

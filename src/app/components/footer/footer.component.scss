@@ -1,0 +1,26 @@
+.footer{
+  display: flex;
+  justify-content: space-around;
+  height: 150px;
+  margin-top: 100px
+}
+.element-container{
+  display: flex;
+  flex-direction: column;
+}
+.image{
+  width: 25px;
+  height: 25px;
+}
+.title-container{
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+.footer_image{
+  margin-right: 15px;
+}
+.subtitle{
+  margin: 0;
+}
+
