@@ -1,9 +1,11 @@
 <header class="header">
   <img src="/assets/logo.svg" alt="logo" class="logo">
-  <nav class="navigation">
+  <nav class="navigation" >
     <a class="nav-link link"
       *ngFor="let itemNav of nav"
-      routerLink="{{itemNav.link}}"
+       routerLink="{{itemNav.link}}"
+       routerLinkActive = "active"
+       [routerLinkActiveOptions]="{exact: true}"
     >{{itemNav.title}}</a>
   </nav>
 </header>

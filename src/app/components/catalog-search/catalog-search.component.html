@@ -1,0 +1,56 @@
+<nav class="nav">
+  <h2 class="nav-header search-header">Пошук</h2>
+  <input class="nav_input search-input">
+  <div class="nav_filters filters-container">
+    <h2 class="nav-header search-header">Фільтри</h2>
+
+    <div class="filter nav_filter" (click)="tap(0)">
+      <h3>Ціна</h3>
+      <span class="arrow"></span>
+    </div>
+    <div class="nav_price price-filter hidden"
+         [ngClass]="{visible: visibleArray[0]}">
+      <div class="price-wrapper">
+        <input class="input-price" type="number" ngDefaultControl name="minPriceName" [(ngModel)]="minPrice">
+        -
+        <input class="input-price" type="number" [(ngModel)]="maxPrice">
+        <button>OK</button>
+      </div>
+      <mat-slider [(ngModel)]="minPrice" max='{{maxPrice}}' step="1" color="#f45454" discrete>
+        <input matSliderStartThumb ngDefaultControl name="minPriceName" [(ngModel)]="minPrice">
+        <input matSliderEndThumb [(ngModel)]="maxPrice">
+      </mat-slider>
+    </div>
+
+    <div class="filter nav_filter" (click)="tap(1)">
+      <h3>Категорія</h3>
+      <span class="arrow"></span>
+    </div>
+    <div class="nav_category category-filter hidden"
+         [ngClass]="{visible: visibleArray[1]}">
+      <div class="filter_input-container">
+        <input type="checkbox" id="menCategory">
+        <label for="menCategory">Mens</label>
+      </div>
+      <div class="filter_input-container">
+        <input type="checkbox" id="jeweleryCategory">
+        <label for="jeweleryCategory">Jewelery</label>
+      </div>
+    </div>
+
+    <div class="filter nav_filter" (click)="tap(2)">
+      <h3>Рейтинг</h3>
+      <span class="arrow"> </span>
+    </div>
+    <div class="nav_category category-filter hidden"
+         [ngClass]="{visible: visibleArray[2]}">
+      <div class="filter_input-container"
+           *ngFor="let rate of rateArray">
+        <input type="checkbox">
+        <label>{{rate}}</label>
+      </div>
+
+    </div>
+
+  </div>
+</nav>

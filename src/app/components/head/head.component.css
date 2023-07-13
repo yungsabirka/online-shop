@@ -12,6 +12,8 @@
 }
 
 .navigation {
+  width: 450px;
+  justify-content: space-around;
   display: flex;
   align-items: center;
 }
@@ -32,6 +34,10 @@
 }
 
 .link:hover {
+  color: #f45454;
+}
+
+.active {
   color: #f45454;
 }
 

@@ -14,6 +14,14 @@ import {RouterModule, Routes} from "@angular/router";
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { CatalogSearchComponent } from './components/catalog-search/catalog-search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSliderModule} from "@angular/material/slider";
+import {MatBadgeModule} from "@angular/material/badge";
+import {FormsModule} from "@angular/forms";
+import { CatalogElementsComponent } from './components/catalog-elements/catalog-elements.component';
+import { BuyItemComponent } from './components/buy-item/buy-item.component';
+
 // register Swiper custom elements
 register();
 
@@ -21,7 +29,8 @@ const appRoutes: Routes = [
   {path: '', component: MainPageComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'basket', component: BasketComponent},
-  {path: 'contacts', component: CatalogComponent}
+  {path: 'contacts', component: ContactsComponent},
+  {path: 'item/:id', component: BuyItemComponent}
 ]
 @NgModule({
   declarations: [
@@ -33,14 +42,21 @@ const appRoutes: Routes = [
     FooterComponent,
     CatalogComponent,
     BasketComponent,
-    ContactsComponent
+    ContactsComponent,
+    CatalogSearchComponent,
+    CatalogElementsComponent,
+    BuyItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatBadgeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 interface INav{
   title: string,
@@ -16,16 +17,16 @@ export class HeadComponent {
       link: ''
     },
     {
+      title: 'Контакти',
+      link: '/contacts'
+    },
+    {
       title: 'Каталог',
       link: '/catalog'
     },
     {
       title: 'Корзина',
       link: '/basket'
-    },
-    {
-      title: 'Контакти',
-      link: '/contacts'
     }
   ]
 }

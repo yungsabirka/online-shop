@@ -16,4 +16,8 @@ export class ClothesSliderComponent implements OnInit{
       .getProducts(this.productsAmount).subscribe({next: data =>
       this.products = data})
   }
+
+  logProducts(){
+    console.log(this.products)
+  }
 }
