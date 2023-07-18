@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../../../product";
 import {HttpService} from "../../services/http.service";
 @Component({
@@ -7,17 +7,17 @@ import {HttpService} from "../../services/http.service";
   styleUrls: ['./clothes-slider.component.scss']
 })
 export class ClothesSliderComponent implements OnInit{
-  products: Product[] = []
-  productsAmount: number = 8
-  constructor(private httpService: HttpService) {}
-
+  @Input() products: Product[] = []
+  @Input() productsAmount: number = 8
+  @Input() itemsOnSlide: number = 4
+  @Input() sliderTitle: string = ''
+  slidersAmount: number = 0
+  constructor() {}
   ngOnInit(){
-    this.httpService
-      .getProducts(this.productsAmount).subscribe({next: data =>
-      this.products = data})
+    this.slidersAmount = Math.ceil(this.productsAmount / this.itemsOnSlide)
+  }
+  createRange(number: number){
+    return new Array(number)
   }
 
-  logProducts(){
-    console.log(this.products)
-  }
 }

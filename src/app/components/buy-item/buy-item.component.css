@@ -1,3 +1,108 @@
+h1, h2, h3, h4, h5, h6, th {
+  font-weight: 400;
+}
 
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  color: #464654;
+}
+
+.product-characteristic {
+  display: flex;
+  align-items: start;
+}
+
+.product_image-container {
+  width: 450px;
+  height: 640px;
+  overflow: hidden;
+}
+
+.product_info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.item-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  max-width: 600px;
+}
+
+.price {
+  font-weight: 600;
+  color: #f45454;
+}
+
+.characteristic-title {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.description-title {
+  font-weight: 600;
+}
+
+.description {
+  max-width: 600px;
+  text-align: justify;
+  line-height: 24px;
+}
+
+.product_description {
+  margin-bottom: 60px;
+}
+
+.btn {
+  font-size: 20px;
+  background-color: #f45454;
+  color: #F9F9FF;
+  height: 60px;
+  border-radius: 30px;
+  border: 1px solid #f45454;
+  transition: all 0.5s ease;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: #464654;
+}
+
+.approximation {
+  visibility: hidden;
+  top: 150px;
+  right: 220px;
+  position: absolute;
+  width: 600px;
+  height: 640px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.approximation-image {
+  transform: scale(3) translateX(150px);
+}
+
+.approximation-visible {
+  background-color: white;
+  visibility: visible;
+}
+
+.clothes-slider {
+  height: 600px;
+  position: relative;
+  top: 250px;
+}
 
 /*# sourceMappingURL=buy-item.component.css.map */

@@ -1,1 +1,35 @@
-<p>CONTACTS</p>
+<main class="contacts">
+  <h1 class="title">{{title | uppercase}}</h1>
+  <article class="contacts_article article">
+    <aside class="contacts_info info">
+      <section *ngFor="let contactInfo of contacts">
+        <h2 class="subtitle">{{contactInfo.subtitle}}</h2>
+        <p class="{{contactInfo.classes}}"
+           *ngFor="let contact of contactInfo.contacts">{{contact}}</p>
+      </section>
+    </aside>
+    <section class="contacts_input-container input-container">
+      <h2>Зворотний зв'язок</h2>
+      <input type="text" class="input contacts_input" placeholder="Ім'я"
+             [(ngModel)]="name"
+      >
+      <div class="input-wrapper contacts_wrapper">
+        <input type="text" class="input contacts_input" placeholder="Телефон"
+               [(ngModel)]="phone"
+
+        >
+        <input type="email" class="input contacts_input" placeholder="Email"
+               [(ngModel)]="email"
+                pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+        >
+      </div>
+      <input type="text" class="input contacts_input" placeholder="Повідомлення"
+             [(ngModel)]="message"
+
+      >
+
+      <button class="contacts_submit submit" type="submit">Відправити</button>
+    </section>
+  </article>
+</main>
+

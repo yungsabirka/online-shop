@@ -1,4 +1,4 @@
-<swiper-container>
+<swiper-container [@enterToPage]>
 
   <swiper-slide *ngFor="let itemSlider of sliderComponents"
                 class='slider-container'>
@@ -7,12 +7,10 @@
       <p class="subtitle">{{itemSlider.firstSubTitle}}</p>
       <p class="subtitle">{{itemSlider.secondSubTitle}}</p>
       <p class="btn-container">
-        <a href="" class="catalog-btn">В каталог</a>
+        <a routerLink="/catalog" class="catalog-btn">В каталог</a>
       </p>
     </div>
   </swiper-slide>
-  <swiper-button-prev></swiper-button-prev>
-  <swipper-button-next></swipper-button-next>
 </swiper-container>
 
 

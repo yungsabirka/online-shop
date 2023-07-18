@@ -21,6 +21,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {FormsModule} from "@angular/forms";
 import { CatalogElementsComponent } from './components/catalog-elements/catalog-elements.component';
 import { BuyItemComponent } from './components/buy-item/buy-item.component';
+import { ItemComponent } from './components/item/item.component';
 
 // register Swiper custom elements
 register();
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     ContactsComponent,
     CatalogSearchComponent,
     CatalogElementsComponent,
-    BuyItemComponent
+    BuyItemComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

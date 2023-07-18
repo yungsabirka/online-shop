@@ -13,6 +13,7 @@
   flex-direction: column;
   align-items: center;
   width: 330px;
+  height: 450px;
   transition: all 0.2s ease;
 }
 
@@ -81,7 +82,7 @@
 
 .pages-button-container {
   height: 60px;
-  margin-top: 60px;
+  margin-top: 180px;
 }
 
 .page-link {
@@ -95,7 +96,7 @@
   transition: all 0.4s ease;
 }
 
-.page-link:hover, .page-link:active {
+.page-link:hover, .btnActivated {
   background-color: #f45454;
   color: white;
   border-color: #f45454;

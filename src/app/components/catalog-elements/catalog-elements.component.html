@@ -1,23 +1,23 @@
-<section class="clothes-section">
+<section class="clothes-section" [@enterToPage]>
   <div class="clothes-container section_container"
-       *ngFor = "let product of products.slice(firstProduct,secondProduct); let i = index"
-      (mouseenter)="buyButtons[i] = !buyButtons[i]"
-      (mouseleave)="buyButtons[i] = !buyButtons[i]"
+       *ngFor="let product of products
+       .slice(firstProductOnPage,lastProductOnPage);
+        let i = index"
+       (mouseenter)="buyButtons[i] = !buyButtons[i]"
+       (mouseleave)="buyButtons[i] = !buyButtons[i]"
        [routerLink]="['/item', product.id]">
-    <div class="image-container">
-      <img class="clothes-image" src="{{product.image}}" alt="product">
-    </div>
-    <div class="text-container">
-      <h4 class="title">{{product.title}}</h4>
-      <h4 class="price">{{product.price | currency}}</h4>
-    </div>
+
+    <app-item [myProduct]="product"></app-item>
     <button class="buy-btn section_button"
-    [ngClass]="{visible: buyButtons[i]}">Купити</button>
+            [ngClass]="{visible: buyButtons[i]}">Купити
+    </button>
   </div>
 </section>
 <div class="pages-button-container">
-  <a class="page-link" (click)="changeElements(0,6)">1</a>
-  <a class="page-link" (click)="changeElements(6,12)">2</a>
-  <a class="page-link" (click)="changeElements(12,18)">3</a>
-  <a class="page-link" (click)="changeElements(18,20)">4</a>
+  <a class="page-link"
+    *ngFor="let button of buttons"
+     [ngClass]="{btnActivated: button.isButtonActivated}"
+     (click)="changeElements(button.buttonNumber);
+      changeButtonActivate(button.buttonNumber)"
+  >{{button.buttonNumber + 1}}</a>
 </div>

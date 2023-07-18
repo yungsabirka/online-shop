@@ -1,2 +1,44 @@
-<p>buy-item works! {{id}}</p>
-<h1>{{product?.title}}</h1>
+<main class="product" [@enterToPage]>
+  <section class="product-characteristic">
+    <div class="product_image-container" #productImageContainer
+         (mouseenter)="showApproximation();
+         onMouseMove($event);
+         trackMouse($event)"
+         (mouseleave)="showApproximation()">
+      <img class="item-image product_image" src="{{product?.image}}" alt="{{product?.title}}">
+    </div>
+    <article class="product_info">
+      <h1 class="title product_title">{{product?.title}}</h1>
+      <h3 class="price product_price">{{product?.price | currency}}</h3>
+
+      <h2 class="characteristic-title">Характеристики</h2>
+      <table>
+        <tr>
+          <th>Rating count:</th>
+          <th>{{product?.rating?.count}}</th>
+        </tr>
+        <tr>
+          <th>Rate:</th>
+          <th>{{product?.rating?.rate}}</th>
+        </tr>
+        <tr>
+          <th>Category:</th>
+          <th>{{product?.category}}</th>
+        </tr>
+      </table>
+      <h2 class="description-title">Опис</h2>
+      <p class="description product_description">{{product?.description}}</p>
+      <button class="btn product_btn">Купити</button>
+    </article>
+    <article class="approximation">
+      <img class="approximation-image"
+           src="{{product?.image}}" alt="{{product?.title}}">
+    </article>
+  </section>
+  <app-clothes-slider class="clothes-slider"
+    [sliderTitle]="sliderTitle"
+    [products]="similarProducts"
+    [productsAmount]="similarProductsAmount"
+    [itemsOnSlide]="itemsOnSlide"
+  ></app-clothes-slider>
+</main>

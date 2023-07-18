@@ -1,14 +1,24 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {transitionAnimation} from "../../enterAnimation";
+import {animate, style, transition, trigger, useAnimation} from "@angular/animations";
 
-interface IMain{
+interface IMain {
   title: string,
   firstSubTitle: string,
   secondSubTitle: string
 }
+
 @Component({
   selector: 'app-main-slider',
   templateUrl: './main-slider.component.html',
-  styleUrls: ['./main-slider.component.scss']
+  styleUrls: ['./main-slider.component.scss'],
+  animations: [
+    trigger('enterToPage', [
+      transition(':enter',
+        useAnimation(transitionAnimation)
+      )]
+    )
+  ]
 })
 export class MainSliderComponent {
   sliderComponents: IMain[] = [
