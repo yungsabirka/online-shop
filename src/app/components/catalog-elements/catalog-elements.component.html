@@ -1,7 +1,10 @@
-<section class="clothes-section" [@enterToPage]>
+<section class="clothes-section" [@enterToPage]
+         *ngIf="products
+         | filterTitle : filterTitle
+         | filterPrice : minPrice : maxPrice as productsArray">
   <div class="clothes-container section_container"
-       *ngFor="let product of products
-       .slice(firstProductOnPage,lastProductOnPage);
+       *ngFor="let product of productsArray
+       .slice(firstProductOnPage,lastProductOnPage)
         let i = index"
        (mouseenter)="buyButtons[i] = !buyButtons[i]"
        (mouseleave)="buyButtons[i] = !buyButtons[i]"
@@ -15,9 +18,11 @@
 </section>
 <div class="pages-button-container">
   <a class="page-link"
-    *ngFor="let button of buttons"
+     *ngFor="let button of buttons"
      [ngClass]="{btnActivated: button.isButtonActivated}"
      (click)="changeElements(button.buttonNumber);
       changeButtonActivate(button.buttonNumber)"
   >{{button.buttonNumber + 1}}</a>
+</div>
+<div>
 </div>

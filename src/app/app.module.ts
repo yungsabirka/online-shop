@@ -22,6 +22,8 @@ import {FormsModule} from "@angular/forms";
 import { CatalogElementsComponent } from './components/catalog-elements/catalog-elements.component';
 import { BuyItemComponent } from './components/buy-item/buy-item.component';
 import { ItemComponent } from './components/item/item.component';
+import { FilterTitlePipe } from './pipes/filter-title.pipe';
+import { FilterPricePipe } from './pipes/filter-price.pipe';
 
 // register Swiper custom elements
 register();
@@ -47,7 +49,9 @@ const appRoutes: Routes = [
     CatalogSearchComponent,
     CatalogElementsComponent,
     BuyItemComponent,
-    ItemComponent
+    ItemComponent,
+    FilterTitlePipe,
+    FilterPricePipe,
   ],
   imports: [
     BrowserModule,

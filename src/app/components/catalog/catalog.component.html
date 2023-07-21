@@ -1,4 +1,12 @@
 <main class="main">
-  <app-catalog-search></app-catalog-search>
-  <app-catalog-elements></app-catalog-elements>
+  <app-catalog-search
+    [(filterTitle)]="filterTitle"
+    [(maxPrice)]="maxPrice"
+    [(minPrice)]="minPrice"
+  ></app-catalog-search>
+  <app-catalog-elements
+    [filterTitle]="filterTitle"
+    [maxPrice]="maxPrice"
+    [minPrice]="minPrice"
+  ></app-catalog-elements>
 </main>

@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, OnInit} from '@angular/core';
+import {AfterContentInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {HttpService} from "../../services/http.service";
 import {Product} from "../../../product";
 import {transition, trigger, useAnimation} from "@angular/animations";
@@ -21,12 +21,16 @@ interface IButton{
   ]
 })
 export class CatalogElementsComponent implements OnInit{
+  @Input() filterTitle: string = ''
+  @Input() minPrice: number = 0
+  @Input() maxPrice: number = 0
   productsAmountOnPage: number
   _firstProductOnPage: number = 0
   _lastProductOnPage: number = 0
   buttons: IButton[] = []
   buyButtons: boolean[] = []
   products: Product[] = []
+
 
   set firstProductOnPage(value: number){
     if(value < 0)
@@ -72,10 +76,4 @@ export class CatalogElementsComponent implements OnInit{
     }
   }
 
-  ngAfterContentInit(): void {
-    for(let i = 0; i<Math.ceil(this.products.length / this.productsAmountOnPage); i++){
-      this.buttons.push({buttonNumber: i, isButtonActivated: false})
-    }
-    this.buttons[0].isButtonActivated = true
-  }
 }

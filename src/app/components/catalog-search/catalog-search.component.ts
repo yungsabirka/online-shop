@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-catalog-search',
@@ -6,15 +6,14 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./catalog-search.component.scss']
 })
 export class CatalogSearchComponent {
-  visibleArray: boolean[] = [
-    false,false,false
-  ]
-  rateArray: number[] = [1,2,3,4,5]
+  visibleArray: boolean[] = [false,false]
 
   _maxPrice: number = 1000
-
   _minPrice: number = 0
 
+  maxInputValue: number = 1000
+  minInputValue: number = 0
+  @Input() filterTitle: string = ''
   @Input()
   set minPrice(price: number){
     if(price < 0)
@@ -26,6 +25,7 @@ export class CatalogSearchComponent {
   }
   get minPrice() {return this._minPrice}
 
+  @Input()
   set maxPrice(price: number){
     if(price > 1000)
       this._maxPrice = 1000
@@ -36,7 +36,21 @@ export class CatalogSearchComponent {
   }
   get maxPrice() {return this._maxPrice}
 
-  tap(index: number){
+  @Output() filterTitleChange = new EventEmitter<string>()
+  onFilterTitleChange(model: string){
+    this.filterTitleChange.emit(model)
+  }
+
+  @Output() maxPriceChange = new EventEmitter<number>()
+  onMaxPriceChange(model: number){
+    this.maxPriceChange.emit(model)
+  }
+  @Output() minPriceChange = new EventEmitter<number>()
+  onMinPriceChange(model: number){
+    this.minPriceChange.emit(model)
+  }
+  showFilter(index: number){
     this.visibleArray[index] = !this.visibleArray[index]
   }
+
 }
