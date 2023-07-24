@@ -2,7 +2,8 @@ import {AfterContentInit, Component, EventEmitter, Input, OnInit, Output} from '
 import {HttpService} from "../../services/http.service";
 import {Product} from "../../../product";
 import {transition, trigger, useAnimation} from "@angular/animations";
-import {transitionAnimation} from "../../enterAnimation";
+import {transitionAnimation} from "../../animations/enterAnimation";
+import {BasketService} from "../../services/basket.service";
 
 interface IButton{
   buttonNumber: number,
@@ -31,7 +32,11 @@ export class CatalogElementsComponent implements OnInit{
   buyButtons: boolean[] = []
   products: Product[] = []
 
-
+  constructor(public http: HttpService, public basketService: BasketService) {
+    this.productsAmountOnPage = 6
+    this._lastProductOnPage = this.productsAmountOnPage
+    this._firstProductOnPage = this._lastProductOnPage - this.productsAmountOnPage
+  }
   set firstProductOnPage(value: number){
     if(value < 0)
       this._firstProductOnPage = 0
@@ -47,11 +52,7 @@ export class CatalogElementsComponent implements OnInit{
       this._lastProductOnPage = value
   }
   get lastProductOnPage() {return this._lastProductOnPage}
-  constructor(public http: HttpService) {
-    this.productsAmountOnPage = 6
-    this._lastProductOnPage = this.productsAmountOnPage
-    this._firstProductOnPage = this._lastProductOnPage - this.productsAmountOnPage
-  }
+
   ngOnInit(){
     this.http.getProducts()
       .subscribe({next: (data: Product[]) => {

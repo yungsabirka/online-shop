@@ -1,3 +1,7 @@
-<app-head></app-head>
-<router-outlet></router-outlet>
+<app-basket [(isShown)] = "isShowBasket"></app-basket>
+<app-head [(isShowBasket)] = "isShowBasket"></app-head>
+<router-outlet
+
+></router-outlet>
 <app-footer></app-footer>
+

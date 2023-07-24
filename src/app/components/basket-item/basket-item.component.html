@@ -1,0 +1,20 @@
+<section class="item">
+  <img class="item_img img"
+    src="{{basketItem?.product?.image}}" alt="{{basketItem?.product?.title}}">
+  <div class="item_wrapper wrapper">
+    <h3 class="item_title title">{{basketItem?.product?.title}}</h3>
+    <h3 class="item_price price">{{basketItem?.product?.price | currency}}</h3>
+    <button class="item_delete-btn delete-btn"
+       (click)="basketService.deleteFromBasket(basketItem?.product)"
+    >Видалити</button>
+    <div class="item_amount-container amount-container">
+      <input (click)="basketService.reduceProductAmount(basketItem!)"
+        type="button" value="-" class="item_amount-input amount-input">
+
+      <span>{{basketItem?.productAmount}}</span>
+
+      <input (click)="basketService.increaseProductAmount(basketItem!)"
+        type="button" value="+" class="item_amount-input amount-input">
+    </div>
+  </div>
+</section>

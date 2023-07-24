@@ -1,1 +1,44 @@
-<p>basket works!</p>
+<aside class="basket" [@showBasket] = "isShown? 'show': 'notShow'" >
+  <div class="basket_header header">
+    <h1 class="basket_title title">{{title}}</h1>
+    <button class="basket_exit-btn exit-btn"
+            (click)="toggleShowBasket()"
+    >X</button>
+  </div>
+  <article>
+    <section class="basket_empty empty-section"
+             *ngIf="basketService.getBasket().length === 0">
+      <div class="basket_empty_wrapper">
+        <img class="basket_empty-img empty-img"
+             src="/assets/basket.jpg" alt="basket image">
+        <p class="basket_subtitle subtitle">{{subtitle}}</p>
+      </div>
+      <button class="basket_continue-btn continue-btn"
+              (click)="toggleShowBasket()"
+      >
+        Продовжити покупки
+      </button>
+    </section>
+    <section class="basket-full"
+             *ngIf="basketService.getBasket().length !== 0"
+    >
+      <app-basket-item
+        *ngFor="let basketItem of basketService.getBasket()"
+        [basketItem]="basketItem"
+      ></app-basket-item>
+
+      <div class="basket_footer footer">
+        <div class="basket_summary-price summary-price">
+          <h2>Всього</h2>
+          <h2>{{basketService.itemsPrice() | currency}}</h2>
+        </div>
+      </div>
+      <button class="basket_order-btn order-btn">Оформити</button>
+      <button class="basket_continue-btn continue-btn"
+              (click)="toggleShowBasket()"
+      >
+        Продовжити покупки
+      </button>
+    </section>
+  </article>
+</aside>

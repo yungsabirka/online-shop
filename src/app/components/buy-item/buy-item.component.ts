@@ -4,7 +4,8 @@ import {ActivatedRoute} from "@angular/router";
 import {filter, map, switchMap} from "rxjs";
 import {HttpService} from "../../services/http.service";
 import {animate, state, style, transition, trigger, useAnimation} from "@angular/animations";
-import {transitionAnimation} from "../../enterAnimation";
+import {transitionAnimation} from "../../animations/enterAnimation";
+import {BasketService} from "../../services/basket.service";
 
 @Component({
   selector: 'app-buy-item',
@@ -31,8 +32,10 @@ export class BuyItemComponent implements OnInit {
   mouseX: number = 0;
   mouseY: number = 0;
 
-  constructor(private route: ActivatedRoute, private http: HttpService) {
-  }
+  constructor(private route: ActivatedRoute,
+              private http: HttpService,
+              public basketService: BasketService
+  ) {}
 
   ngOnInit() {
     this.route.paramMap.pipe(
@@ -75,4 +78,5 @@ export class BuyItemComponent implements OnInit {
   }
 
 
+  protected readonly Product = Product;
 }

@@ -24,6 +24,7 @@ import { BuyItemComponent } from './components/buy-item/buy-item.component';
 import { ItemComponent } from './components/item/item.component';
 import { FilterTitlePipe } from './pipes/filter-title.pipe';
 import { FilterPricePipe } from './pipes/filter-price.pipe';
+import { BasketItemComponent } from './components/basket-item/basket-item.component';
 
 // register Swiper custom elements
 register();
@@ -31,7 +32,6 @@ register();
 const appRoutes: Routes = [
   {path: '', component: MainPageComponent},
   {path: 'catalog', component: CatalogComponent},
-  {path: 'basket', component: BasketComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'item/:id', component: BuyItemComponent}
 ]
@@ -52,6 +52,7 @@ const appRoutes: Routes = [
     ItemComponent,
     FilterTitlePipe,
     FilterPricePipe,
+    BasketItemComponent,
   ],
   imports: [
     BrowserModule,

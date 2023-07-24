@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {transitionAnimation} from "../../enterAnimation";
+import {transitionAnimation} from "../../animations/enterAnimation";
 import {animate, style, transition, trigger, useAnimation} from "@angular/animations";
 
 interface IMain {

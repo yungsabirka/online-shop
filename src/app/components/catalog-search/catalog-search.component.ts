@@ -52,5 +52,4 @@ export class CatalogSearchComponent {
   showFilter(index: number){
     this.visibleArray[index] = !this.visibleArray[index]
   }
-
 }

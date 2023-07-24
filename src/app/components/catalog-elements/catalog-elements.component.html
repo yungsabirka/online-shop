@@ -12,6 +12,7 @@
 
     <app-item [myProduct]="product"></app-item>
     <button class="buy-btn section_button"
+            (click)="basketService.addToBasket(product)"
             [ngClass]="{visible: buyButtons[i]}">Купити
     </button>
   </div>
@@ -24,5 +25,4 @@
       changeButtonActivate(button.buttonNumber)"
   >{{button.buttonNumber + 1}}</a>
 </div>
-<div>
-</div>
+

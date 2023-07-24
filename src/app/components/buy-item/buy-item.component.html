@@ -28,7 +28,9 @@
       </table>
       <h2 class="description-title">Опис</h2>
       <p class="description product_description">{{product?.description}}</p>
-      <button class="btn product_btn">Купити</button>
+      <button class="btn product_btn"
+              (click)="basketService.addToBasket(product)"
+      >Купити</button>
     </article>
     <article class="approximation">
       <img class="approximation-image"
