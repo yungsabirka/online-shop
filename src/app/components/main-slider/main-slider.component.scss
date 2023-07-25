@@ -4,14 +4,20 @@
 .slider-container:nth-child(2){
   background-image: url("/assets/slider2.jpg");
 }
+
 .slider-container{
+  width: 100%;
   filter: opacity(0.85);
   background-size: cover;
   height: 900px;
   display: flex;
   align-items: center;
+
+  @media (max-width: 920px) {
+    height: 600px;
+  }
 }
-.slider-wrapper{
+.main_slider-wrapper{
   margin-left: 100px;
 }
 .title{
@@ -28,6 +34,8 @@
 .btn-container{
   display: flex;
   align-items: center;
+}
+.main_btn-container{
   margin-top: 40px
 }
 .catalog-btn{

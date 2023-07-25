@@ -22,10 +22,13 @@
     <section class="basket-full"
              *ngIf="basketService.getBasket().length !== 0"
     >
-      <app-basket-item
-        *ngFor="let basketItem of basketService.getBasket()"
-        [basketItem]="basketItem"
-      ></app-basket-item>
+      <div class="basket-items">
+        <app-basket-item
+          *ngFor="let basketItem of basketService.getBasket()"
+          [basketItem]="basketItem"
+        ></app-basket-item>
+      </div>
+
 
       <div class="basket_footer footer">
         <div class="basket_summary-price summary-price">
